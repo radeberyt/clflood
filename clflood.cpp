@@ -4,32 +4,10 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <strings.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <iostream>
-#include <cstdio>
-#include <memory>
-#include <stdexcept>
 #include <string.h>
-#include <array>
-#include "include/HTTPRequest.hpp"
 #include <ctime>
-
-
+#include <stdlib.h>
 char** clfarg;
-static const char alphanum[] =
-"0123456789"
-"!@#$%^&*"
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-"abcdefghijklmnopqrstuvwxyz";
-
-int stringLength = sizeof(alphanum) - 1;
-
-char* genRandom()
-{
-    return alphanum[rand() % stringLength];
-}
-
 int log(char* text, int type){
   if (type == 0){
     printf("[-] %s\n", text);
@@ -46,12 +24,7 @@ int log(char* text, int type){
   return 0;
 }
 
-int random(int a,int b)
-{
-    srand(time(NULL));
-    if (a > 0) return a + rand() % (b - a);
-    else return a + rand() % (abs(a) + b);
-}
+
 
 int printlogo(){
   puts("░█████╗░██╗░░░░░███████╗██╗░░░░░░█████╗░░█████╗░██████╗░");
